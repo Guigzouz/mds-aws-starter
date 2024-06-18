@@ -1,4 +1,3 @@
----
 name: Build and Push to AWS ECR
 on:
   push:
@@ -33,7 +32,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Debug output ECR
+      - name: Log ECR Registry
         run: |
           - echo "ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}"
 
@@ -42,7 +41,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: mds-aws-starter
-          IMAGE_TAG: lastest
+          IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
