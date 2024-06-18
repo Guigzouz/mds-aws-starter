@@ -13,7 +13,7 @@ afterAll((done) => {
   server.close(done);
 });
 
-describe("GET /", () => {
+describe("GET /GET /", () => {
   it("should respond with Hello, World!", async () => {
     const response = await request(server).get("/");
     expect(response.status).toBe(200);
