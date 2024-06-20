@@ -19,7 +19,8 @@ app.get("/users", async (req, res) => {
     res.json(users);
   } catch (error) {
     res.status(500).json({
-      error: "Une erreur est survenue lors de la récupération des utilisateurs",
+      error:
+        "Une erreur estt survenue lors de la récupération des utilisateurs",
     });
   }
 });
