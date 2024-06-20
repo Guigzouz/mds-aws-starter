@@ -2,42 +2,6 @@ const express = require("express");
 
 const { PrismaClient } = require("@prisma/client");
 
-const {
-  SecretsManagerClient,
-  GetSecretValueCommand,
-} = require("@aws-sdk/client-secrets-manager");
-
-const secret_name = process.env.RDS_CLUSTER_SECRET; // Use process.env to access environment variables
-const client = new SecretsManagerClient({
-  region: "eu-west-3",
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-});
-
-async function getSecret() {
-  let response;
-
-  try {
-    response = await client.send(
-      new GetSecretValueCommand({
-        SecretId: secret_name,
-        VersionStage: "AWSCURRENT", // VersionStage defaults to AWSCURRENT if unspecified
-      })
-    );
-  } catch (error) {
-    // For a list of exceptions thrown, see
-    // https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
-    throw error;
-  }
-
-  const secret = response.SecretString;
-  console.log(secret);
-}
-
-getSecret(); // Call the async function
-
 const app = express();
 const prisma = new PrismaClient();
 
