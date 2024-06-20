@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node --watch server.js",
     "test": "jest"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@aws-sdk/client-secrets-manager": "^3.600.0",
+    "@prisma/client": "^5.15.1",
+    "aws-sdk": "^2.1645.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "prisma": "^5.15.1"
   },
   "devDependencies": {
     "jest": "^26.6.3",
