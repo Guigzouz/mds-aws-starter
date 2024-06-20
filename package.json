@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node --watch index.js",
     "test": "jest"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@prisma/client": "^5.15.1",
+    "express": "^4.17.1",
+    "prisma": "^5.15.1"
   },
   "devDependencies": {
     "jest": "^26.6.3",
