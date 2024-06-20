@@ -1,4 +1,5 @@
 const express = require("express");
+
 const { PrismaClient } = require("@prisma/client");
 
 const {
@@ -32,7 +33,6 @@ async function getSecret() {
   }
 
   const secret = response.SecretString;
-  console.log("here is secret:", secret);
 }
 
 getSecret(); // Call the async function
