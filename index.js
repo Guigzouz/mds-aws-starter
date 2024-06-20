@@ -33,6 +33,7 @@ async function getSecret() {
   }
 
   const secret = response.SecretString;
+  console.log(secret);
 }
 
 getSecret(); // Call the async function
