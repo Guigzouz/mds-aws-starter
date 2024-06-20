@@ -7,7 +7,6 @@ const prisma = new PrismaClient();
 
 app.use(express.json());
 
-// Route de test
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
